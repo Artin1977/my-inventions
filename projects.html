@@ -165,7 +165,7 @@
       <img src="${product.image}" alt="محصول" class="product-image" />
       <div class="product-price">قیمت: ${product.price}</div>
       <div class="product-description">${product.description}</div>
-      <button class="buy-btn">خرید</button>
+      <button class="buy-btn" onclick="location.href='product${product.id}.html'">خرید</button>
     `;
 
     shopGrid.appendChild(card);
