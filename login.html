@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ورود و ارسال پیام</title>
+
+<style>
+  @font-face {
+    font-family: 'Vazir';
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face/Vazir.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face/Vazir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    font-family: "Vazir", Tahoma, sans-serif;
+    direction: rtl;
+    margin: 0; padding: 0;
+    background: #f9f9f9;
+    color: #333;
+  }
+  header {
+    background-color: #0a9396;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    margin: 0;
+  }
+  nav {
+    display: flex;
+    gap: 15px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  nav a:hover, nav a.active {
+    background-color: #056f70;
+  }
+  main {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  input, textarea {
+    font-family: "Vazir", Tahoma, sans-serif;
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical;
+  }
+  button {
+    margin-top: 20px;
+    background-color: #0a9396;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #056f70;
+  }
+  footer {
+    background-color: #0a9396;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    font-size: 14px;
+  }
+  #notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(30, 30, 30, 0.9);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    opacity: 0;
+    pointer-events: none;
+    font-weight: bold;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out;
+  }
+  #notification.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>ورود و ارسال پیام</h1>
+  <nav>
+    <a href="index.html">خانه</a>
+    <a href="projects.html">اختراعات</a>
+    <a href="contact.html">تماس با ما</a>
+    <a href="login.html" class="active">ورود</a>
+  </nav>
+</header>
+
+<main>
+  <form id="contactForm" action="https://formspree.io/f/xdkznqal" method="POST">
+    <label for="fname">نام:</label>
+    <input type="text" id="fname" name="نام" required />
+
+    <label for="lname">نام خانوادگی:</label>
+    <input type="text" id="lname" name="نام خانوادگی" required />
+
+    <label for="phone">شماره تلفن:</label>
+    <input
+      type="tel"
+      id="phone"
+      name="شماره تلفن"
+      pattern="[0-9۰-۹]+"
+      maxlength="11"
+      required
+    />
+
+    <label for="email">ایمیل:</label>
+    <input type="email" id="email" name="_replyto" required />
+
+    <label for="message">پیغام:</label>
+    <textarea id="message" name="پیغام" rows="5" required></textarea>
+
+    <button type="submit">ارسال پیام</button>
+  </form>
+</main>
+
+<div id="notification">پیام شما با موفقیت ثبت شد.</div>
+
+<footer>
+  © ۲۰۲۵ محمد | همه حقوق محفوظ است
+</footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const notification = document.getElementById('notification');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        showNotification('پیام شما با موفقیت ثبت شد.');
+        form.reset();
+      } else {
+        response.json().then(data => {
+          let errorMsg = 'خطا در ارسال پیام.';
+          if (data && data.errors) {
+            errorMsg = data.errors.map(e => e.message).join(', ');
+          }
+          showNotification(errorMsg);
+        });
+      }
+    }).catch(() => {
+      showNotification('خطا در ارسال پیام. لطفاً اتصال اینترنت خود را چک کنید.');
+    });
+  });
+
+  function showNotification(msg) {
+    notification.textContent = msg;
+    notification.classList.add('show');
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 4000);
+  }
+</script>
+
+</body>
+</html>
