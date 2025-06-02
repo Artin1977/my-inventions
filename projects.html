@@ -8,119 +8,128 @@
   body {
     font-family: Tahoma, sans-serif;
     direction: rtl;
-    margin: 0; padding: 0;
-    background: #f9f9f9;
-    color: #333;
+    background: #f0f0f0;
+    margin: 20px;
   }
-  header {
-    background-color: #0a9396;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  h1 {
+    text-align: center;
+    margin-bottom: 5px;
   }
-  header h1 {
-    margin: 0;
+  h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #555;
   }
-  nav {
-    display: flex;
-    gap: 15px;
+  .shop-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
   }
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 4px;
-  }
-  nav a:hover, nav a.active {
-    background-color: #056f70;
-  }
-  main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 15px;
-  }
-  .project {
+  .product-card {
     background: white;
-    border-radius: 6px;
+    border-radius: 8px;
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    padding: 15px;
-    cursor: pointer;
+    padding: 10px;
+    text-align: center;
     transition: box-shadow 0.3s ease;
   }
-  .project:hover {
-    box-shadow: 0 0 12px rgba(10,147,150,0.6);
+  .product-card:hover {
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
   }
-  .project h2 {
-    margin: 0 0 10px 0;
-    color: #0a9396;
+  .product-image {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background: #fff;
   }
-  .project p {
-    color: #555;
-    line-height: 1.4;
+  .product-price {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
   }
-  footer {
-    background-color: #0a9396;
+  .buy-btn {
+    background: #0a9396;
     color: white;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 50px;
-    font-size: 14px;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
   }
-  @media (max-width: 600px) {
-    header {
-      flex-direction: column;
-      text-align: center;
-      gap: 10px;
-    }
-    nav {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  .buy-btn:hover {
+    background: #056f70;
+  }
+  .product-description {
+    display: none;
+    text-align: right;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #666;
+  }
+  .product-card.active .product-description {
+    display: block;
   }
 </style>
 </head>
 <body>
-<header>
-  <h1>معرفی ساخته های آرتین</h1>
-  <nav>
-    <a href="index.html">خانه</a>
-    <a href="projects.html" class="active">فروشگاه</a>
-    <a href="contact.html">تماس با ما</a>
-    <a href="login.html">ورود</a>
-  </nav>
-</header>
 
-<main>
-  <h2>ساخته های من من</h2>
+<h1>فروشگاه</h1>
+<h3>فروشگاه اختراعات</h3>
 
-  <div class="project">
-    <h2>اختراع شماره ۱</h2>
-    <p>توضیح کوتاه درباره این اختراع و کاربرد آن.</p>
-  </div>
+<div class="shop-container" id="shopContainer">
 
-  <div class="project">
-    <h2>اختراع شماره ۲</h2>
-    <p>توضیح کوتاه درباره این اختراع و کاربرد آن.</p>
-  </div>
+  <!-- کارت‌های محصول با JS ساخته میشن -->
 
-  <div class="project">
-    <h2>اختراع هوشمند</h2>
-    <p>اختراع هوشمند با کاربردهای متنوع و ویژگی‌های خاص.</p>
-  </div>
+</div>
 
-  <div class="project">
-    <h2>اختراع نوآورانه</h2>
-    <p>اختراع نوآورانه با تکنولوژی روز و امکانات جدید.</p>
-  </div>
+<script>
+  const products = [
+    {
+      id: 1,
+      price: "4,885,464 تومان",
+      image: "https://via.placeholder.com/180x150?text=محصول+1",
+      description: "این یک توضیح نمونه برای محصول شماره 1 است."
+    },
+    {
+      id: 2,
+      price: "4,464,445 تومان",
+      image: "https://via.placeholder.com/180x150?text=محصول+2",
+      description: "توضیحی درباره محصول شماره 2 و ویژگی‌هایش."
+    },
+    {
+      id: 3,
+      price: "3,200,000 تومان",
+      image: "https://via.placeholder.com/180x150?text=محصول+3",
+      description: "شرح و جزئیات مربوط به محصول شماره 3."
+    }
+  ];
 
-</main>
+  const container = document.getElementById('shopContainer');
 
-<footer>
-  © ۲۰۲۵ | همه حقوق شما محفوظ است
-</footer>
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    card.innerHTML = `
+      <img src="${product.image}" alt="محصول" class="product-image" />
+      <div class="product-price">قیمت: ${product.price}</div>
+      <button class="buy-btn">خرید</button>
+      <div class="product-description">${product.description}</div>
+    `;
+
+    card.querySelector('.buy-btn').addEventListener('click', () => {
+      card.classList.toggle('active');
+    });
+
+    container.appendChild(card);
+  });
+</script>
+
 </body>
 </html>
