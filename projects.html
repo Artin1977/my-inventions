@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>اختراعات من</title>
+<style>
+  body {
+    font-family: Tahoma, sans-serif;
+    direction: rtl;
+    margin: 0; padding: 0;
+    background: #f9f9f9;
+    color: #333;
+  }
+  header {
+    background-color: #0a9396;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    margin: 0;
+  }
+  nav {
+    display: flex;
+    gap: 15px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  nav a:hover, nav a.active {
+    background-color: #056f70;
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  .project {
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  .project:hover {
+    box-shadow: 0 0 12px rgba(10,147,150,0.6);
+  }
+  .project h2 {
+    margin: 0 0 10px 0;
+    color: #0a9396;
+  }
+  .project p {
+    color: #555;
+    line-height: 1.4;
+  }
+  footer {
+    background-color: #0a9396;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    font-size: 14px;
+  }
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+    nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>معرفی اختراعات محمد</h1>
+  <nav>
+    <a href="index.html">خانه</a>
+    <a href="projects.html" class="active">اختراعات</a>
+    <a href="contact.html">تماس با ما</a>
+    <a href="login.html">ورود</a>
+  </nav>
+</header>
+
+<main>
+  <h2>اختراعات من</h2>
+
+  <div class="project">
+    <h2>اختراع شماره ۱</h2>
+    <p>توضیح کوتاه درباره این اختراع و کاربرد آن.</p>
+  </div>
+
+  <div class="project">
+    <h2>اختراع شماره ۲</h2>
+    <p>توضیح کوتاه درباره این اختراع و کاربرد آن.</p>
+  </div>
+
+  <div class="project">
+    <h2>اختراع هوشمند</h2>
+    <p>اختراع هوشمند با کاربردهای متنوع و ویژگی‌های خاص.</p>
+  </div>
+
+  <div class="project">
+    <h2>اختراع نوآورانه</h2>
+    <p>اختراع نوآورانه با تکنولوژی روز و امکانات جدید.</p>
+  </div>
+
+</main>
+
+<footer>
+  © ۲۰۲۵ محمد | همه حقوق محفوظ است
+</footer>
+</body>
+</html>
