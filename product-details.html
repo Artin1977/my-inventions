@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>جزئیات محصول</title>
+<style>
+  body { font-family: Tahoma, sans-serif; direction: rtl; padding: 20px; background:#f9f9f9; }
+  .container { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+  img { width: 100%; max-height: 300px; object-fit: contain; }
+  h1 { color: #0a9396; }
+  .price { font-weight: bold; color: #0a9396; font-size: 20px; margin: 15px 0; }
+  .description { font-size: 16px; color: #555; }
+  a.back { display: inline-block; margin-top: 20px; text-decoration: none; color: #056f70; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 id="productName">محصول</h1>
+  <img id="productImage" src="" alt="تصویر محصول" />
+  <div class="price" id="productPrice"></div>
+  <div class="description" id="productDescription"></div>
+  <a href="projects.html" class="back">بازگشت به فروشگاه</a>
+</div>
+
+<script>
+  // داده محصولات باید مشابه همان آرایه در صفحه فروشگاه باشد
+  const products = [
+    {id: 1, price: "۱,۶۱۰,۰۰۰ تومان", image: "product1.jpg", description: "آردوینو مگا", name: "آردوینو مگا"},
+    {id: 2, price: "۵۴۶,۲۱۰ تومان", image: "product2.jpg", description: "آردوینو یونو", name: "آردوینو یونو"},
+    {id: 3, price: "۲۶۹,۹۰۰ تومان", image: "product3.jpg", description: "آردوینو نانو", name: "آردوینو نانو"},
+    {id: 4, price: "۱۸۰,۰۰۰ تومان", image: "product4.jpg", description: "ال سی دی 2*16", name: "ال سی دی 2*16"}
+  ];
+
+  // دریافت پارامتر id از url
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = parseInt(urlParams.get('id'));
+
+  const product = products.find(p => p.id === productId);
+
+  if (product) {
+    document.getElementById('productName').textContent = product.name;
+    document.getElementById('productImage').src = product.image;
+    document.getElementById('productImage').alt = product.name;
+    document.getElementById('productPrice').textContent = `قیمت: ${product.price}`;
+    document.getElementById('productDescription').textContent = product.description;
+  } else {
+    document.querySelector('.container').innerHTML = "<h2>محصولی یافت نشد</h2>";
+  }
+</script>
+</body>
+</html>
