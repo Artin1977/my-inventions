@@ -5,18 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>فروشگاه</title>
 <style>
-  html, body {
-    height: 100%;
-    margin: 0; padding: 0;
-  }
   body {
     font-family: Tahoma, sans-serif;
     direction: rtl;
+    margin: 0;
     background: #f9f9f9;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
   }
   header {
     background-color: #0a9396;
@@ -47,7 +41,6 @@
     max-width: 1000px;
     margin: 30px auto;
     padding: 0 15px 50px 15px;
-    flex: 1;
   }
   h2 {
     margin-bottom: 20px;
@@ -107,8 +100,8 @@
     color: white;
     text-align: center;
     padding: 15px 0;
+    margin-top: 30px;
     font-size: 14px;
-    margin-top: auto;
   }
 </style>
 </head>
@@ -138,7 +131,7 @@
   const products = [
     {
       id: 1,
-      price: "۱,۶۱5,۰۰۰ تومان",
+      price: "۱,۶۱۰,۰۰۰ تومان",
       image: "product1.jpg",
       description: "آردوینو مگا"
     },
@@ -168,12 +161,12 @@
     const card = document.createElement('div');
     card.className = 'product-card';
 
-    card.innerHTML = `
+    card.innerHTML = 
       <img src="${product.image}" alt="محصول" class="product-image" />
       <div class="product-price">قیمت: ${product.price}</div>
       <div class="product-description">${product.description}</div>
       <button class="buy-btn">خرید</button>
-    `;
+    ;
 
     shopGrid.appendChild(card);
   });
