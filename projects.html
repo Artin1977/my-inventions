@@ -5,34 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>فروشگاه</title>
 <style>
+  /* استایل کلی بدنه و فونت */
   body {
     font-family: Tahoma, sans-serif;
     direction: rtl;
-    background: #f0f0f0;
-    margin: 20px;
+    margin: 0;
+    background: #f9f9f9;
+    color: #333;
   }
-  h1 {
-    text-align: center;
-    margin-bottom: 5px;
+  /* هدر */
+  header {
+    background-color: #0a9396;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  h3 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 30px;
-    color: #555;
+  header h1 {
+    margin: 0;
   }
-  .shop-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
-    gap: 20px;
+  nav {
+    display: flex;
+    gap: 15px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  nav a:hover, nav a.active {
+    background-color: #056f70;
+  }
+  /* محتوای اصلی (کارت‌ها) */
+  main {
     max-width: 1000px;
-    margin: auto;
+    margin: 30px auto;
+    padding: 0 15px 50px 15px;
+  }
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
   }
   .product-card {
     background: white;
     border-radius: 8px;
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     transition: box-shadow 0.3s ease;
   }
@@ -41,76 +67,102 @@
   }
   .product-image {
     width: 100%;
-    height: 150px;
+    height: 140px;
     object-fit: contain;
     border: 1px solid #ddd;
-    margin-bottom: 10px;
     border-radius: 4px;
+    margin-bottom: 10px;
     background: #fff;
   }
   .product-price {
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    color: #0a9396;
   }
   .buy-btn {
-    background: #0a9396;
+    background-color: #0a9396;
     color: white;
     border: none;
-    padding: 10px 12px;
+    padding: 10px 15px;
     border-radius: 5px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   .buy-btn:hover {
-    background: #056f70;
+    background-color: #056f70;
   }
+  /* توضیحات محصول */
   .product-description {
-    display: none;
-    text-align: right;
     font-size: 14px;
-    margin-top: 10px;
     color: #666;
+    margin-top: 10px;
+    min-height: 40px;
   }
-  .product-card.active .product-description {
-    display: block;
+  /* فوتر */
+  footer {
+    background-color: #0a9396;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    font-size: 14px;
   }
 </style>
 </head>
 <body>
 
-<h1>فروشگاه</h1>
-<h3>فروشگاه اختراعات</h3>
+<header>
+  <h1>فروشگاه من</h1>
+  <nav>
+    <a href="index.html">خانه</a>
+    <a href="projects.html" class="active">فروشگاه</a>
+    <a href="contact.html">تماس با ما</a>
+    <a href="login.html">ورود</a>
+  </nav>
+</header>
 
-<div class="shop-container" id="shopContainer">
+<main>
+  <h2>محصولات ما</h2>
+  <div class="shop-grid" id="shopGrid">
+    <!-- کارت‌های محصول توسط جاوااسکریپت ساخته می‌شوند -->
+  </div>
+</main>
 
-  <!-- کارت‌های محصول با JS ساخته میشن -->
-
-</div>
+<footer>
+  © ۲۰۲۵ محمد | همه حقوق محفوظ است
+</footer>
 
 <script>
+  // لیست محصولات
   const products = [
     {
       id: 1,
       price: "4,885,464 تومان",
-      image: "https://via.placeholder.com/180x150?text=محصول+1",
+      image: "https://via.placeholder.com/180x140?text=محصول+1",
       description: "این یک توضیح نمونه برای محصول شماره 1 است."
     },
     {
       id: 2,
       price: "4,464,445 تومان",
-      image: "https://via.placeholder.com/180x150?text=محصول+2",
+      image: "https://via.placeholder.com/180x140?text=محصول+2",
       description: "توضیحی درباره محصول شماره 2 و ویژگی‌هایش."
     },
     {
       id: 3,
       price: "3,200,000 تومان",
-      image: "https://via.placeholder.com/180x150?text=محصول+3",
+      image: "https://via.placeholder.com/180x140?text=محصول+3",
       description: "شرح و جزئیات مربوط به محصول شماره 3."
+    },
+    {
+      id: 4,
+      price: "2,700,000 تومان",
+      image: "https://via.placeholder.com/180x140?text=محصول+4",
+      description: "توضیحاتی درباره محصول شماره 4."
     }
   ];
 
-  const container = document.getElementById('shopContainer');
+  const shopGrid = document.getElementById('shopGrid');
 
   products.forEach(product => {
     const card = document.createElement('div');
@@ -119,15 +171,11 @@
     card.innerHTML = `
       <img src="${product.image}" alt="محصول" class="product-image" />
       <div class="product-price">قیمت: ${product.price}</div>
-      <button class="buy-btn">خرید</button>
       <div class="product-description">${product.description}</div>
+      <button class="buy-btn">خرید</button>
     `;
 
-    card.querySelector('.buy-btn').addEventListener('click', () => {
-      card.classList.toggle('active');
-    });
-
-    container.appendChild(card);
+    shopGrid.appendChild(card);
   });
 </script>
 
