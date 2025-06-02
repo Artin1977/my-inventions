@@ -161,12 +161,12 @@
     const card = document.createElement('div');
     card.className = 'product-card';
 
-    card.innerHTML = 
+    card.innerHTML = `
       <img src="${product.image}" alt="محصول" class="product-image" />
       <div class="product-price">قیمت: ${product.price}</div>
       <div class="product-description">${product.description}</div>
       <button class="buy-btn">خرید</button>
-    ;
+    `;
 
     shopGrid.appendChild(card);
   });
