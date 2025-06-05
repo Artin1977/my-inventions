@@ -129,25 +129,66 @@
 
 <script>
   const products = [
-    { id: 1, price: "۱,۶۱۰,۰۰۰ تومان", image: "product1.jpg", description: "آردوینو مگا" },
-    { id: 2, price: "۵۴۶,۲۱۰ تومان", image: "product2.jpg", description: "آردوینو یونو" },
-    { id: 3, price: "۲۶۹,۹۰۰ تومان", image: "product3.jpg", description: "آردوینو نانو" },
-    { id: 4, price: "۱۸۰,۰۰۰ تومان", image: "product4.jpg", description: "ال سی دی 2*16" },
-    { id: 5, price: "۹۹۰,۰۰۰ تومان", image: "product5.jpg", description: "ماژول ESP8266" },
-    { id: 6, price: "۴۵۰,۰۰۰ تومان", image: "product6.jpg", description: "ماژول GPS" },
-    { id: 7, price: "۷۵۰,۰۰۰ تومان", image: "product7.jpg", description: "سنسور دما و رطوبت DHT22" },
-    { id: 8, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 9, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 10, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 11, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 12, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 13, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 14, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 15, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 16, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 17, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 18, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
-    { id: 19, price: "۳۲۰,۰۰۰ تومان", image: "product8.jpg", description: "نمایشگر OLED" }
+    { id: 1, price: "۵۰۰٬۰۰۰ تومان", image: "product1.jpg", description: "محصول شماره ۱" },
+    { id: 2, price: "۵۰۰٬۰۰۰ تومان", image: "product2.jpg", description: "محصول شماره ۲" },
+    { id: 3, price: "۵۰۰٬۰۰۰ تومان", image: "product3.jpg", description: "محصول شماره ۳" },
+    { id: 4, price: "۵۰۰٬۰۰۰ تومان", image: "product4.jpg", description: "محصول شماره ۴" },
+    { id: 5, price: "۵۰۰٬۰۰۰ تومان", image: "product5.jpg", description: "محصول شماره ۵" },
+    { id: 6, price: "۵۰۰٬۰۰۰ تومان", image: "product6.jpg", description: "محصول شماره ۶" },
+    { id: 7, price: "۵۰۰٬۰۰۰ تومان", image: "product7.jpg", description: "محصول شماره ۷" },
+    { id: 8, price: "۵۰۰٬۰۰۰ تومان", image: "product8.jpg", description: "محصول شماره ۸" },
+    { id: 9, price: "۵۰۰٬۰۰۰ تومان", image: "product9.jpg", description: "محصول شماره ۹" },
+    { id: 10, price: "۵۰۰٬۰۰۰ تومان", image: "product10.jpg", description: "محصول شماره ۱۰" },
+    { id: 11, price: "۵۰۰٬۰۰۰ تومان", image: "product11.jpg", description: "محصول شماره ۱۱" },
+    { id: 12, price: "۵۰۰٬۰۰۰ تومان", image: "product12.jpg", description: "محصول شماره ۱۲" },
+    { id: 13, price: "۵۰۰٬۰۰۰ تومان", image: "product13.jpg", description: "محصول شماره ۱۳" },
+    { id: 14, price: "۵۰۰٬۰۰۰ تومان", image: "product14.jpg", description: "محصول شماره ۱۴" },
+    { id: 15, price: "۵۰۰٬۰۰۰ تومان", image: "product15.jpg", description: "محصول شماره ۱۵" },
+    { id: 16, price: "۵۰۰٬۰۰۰ تومان", image: "product16.jpg", description: "محصول شماره ۱۶" },
+    { id: 17, price: "۵۰۰٬۰۰۰ تومان", image: "product17.jpg", description: "محصول شماره ۱۷" },
+    { id: 18, price: "۵۰۰٬۰۰۰ تومان", image: "product18.jpg", description: "محصول شماره ۱۸" },
+    { id: 19, price: "۵۰۰٬۰۰۰ تومان", image: "product19.jpg", description: "محصول شماره ۱۹" },
+    { id: 20, price: "۵۰۰٬۰۰۰ تومان", image: "product20.jpg", description: "محصول شماره ۲۰" },
+    { id: 21, price: "۵۰۰٬۰۰۰ تومان", image: "product21.jpg", description: "محصول شماره ۲۱" },
+    { id: 22, price: "۵۰۰٬۰۰۰ تومان", image: "product22.jpg", description: "محصول شماره ۲۲" },
+    { id: 23, price: "۵۰۰٬۰۰۰ تومان", image: "product23.jpg", description: "محصول شماره ۲۳" },
+    { id: 24, price: "۵۰۰٬۰۰۰ تومان", image: "product24.jpg", description: "محصول شماره ۲۴" },
+    { id: 25, price: "۵۰۰٬۰۰۰ تومان", image: "product25.jpg", description: "محصول شماره ۲۵" },
+    { id: 26, price: "۵۰۰٬۰۰۰ تومان", image: "product26.jpg", description: "محصول شماره ۲۶" },
+    { id: 27, price: "۵۰۰٬۰۰۰ تومان", image: "product27.jpg", description: "محصول شماره ۲۷" },
+    { id: 28, price: "۵۰۰٬۰۰۰ تومان", image: "product28.jpg", description: "محصول شماره ۲۸" },
+    { id: 29, price: "۵۰۰٬۰۰۰ تومان", image: "product29.jpg", description: "محصول شماره ۲۹" },
+    { id: 30, price: "۵۰۰٬۰۰۰ تومان", image: "product30.jpg", description: "محصول شماره ۳۰" },
+    { id: 31, price: "۵۰۰٬۰۰۰ تومان", image: "product31.jpg", description: "محصول شماره ۳۱" },
+    { id: 32, price: "۵۰۰٬۰۰۰ تومان", image: "product32.jpg", description: "محصول شماره ۳۲" },
+    { id: 33, price: "۵۰۰٬۰۰۰ تومان", image: "product33.jpg", description: "محصول شماره ۳۳" },
+    { id: 34, price: "۵۰۰٬۰۰۰ تومان", image: "product34.jpg", description: "محصول شماره ۳۴" },
+    { id: 35, price: "۵۰۰٬۰۰۰ تومان", image: "product35.jpg", description: "محصول شماره ۳۵" },
+    { id: 36, price: "۵۰۰٬۰۰۰ تومان", image: "product36.jpg", description: "محصول شماره ۳۶" },
+    { id: 37, price: "۵۰۰٬۰۰۰ تومان", image: "product37.jpg", description: "محصول شماره ۳۷" },
+    { id: 38, price: "۵۰۰٬۰۰۰ تومان", image: "product38.jpg", description: "محصول شماره ۳۸" },
+    { id: 39, price: "۵۰۰٬۰۰۰ تومان", image: "product39.jpg", description: "محصول شماره ۳۹" },
+    { id: 40, price: "۵۰۰٬۰۰۰ تومان", image: "product40.jpg", description: "محصول شماره ۴۰" },
+    { id: 41, price: "۵۰۰٬۰۰۰ تومان", image: "product41.jpg", description: "محصول شماره ۴۱" },
+    { id: 42, price: "۵۰۰٬۰۰۰ تومان", image: "product42.jpg", description: "محصول شماره ۴۲" },
+    { id: 43, price: "۵۰۰٬۰۰۰ تومان", image: "product43.jpg", description: "محصول شماره ۴۳" },
+    { id: 44, price: "۵۰۰٬۰۰۰ تومان", image: "product44.jpg", description: "محصول شماره ۴۴" },
+    { id: 45, price: "۵۰۰٬۰۰۰ تومان", image: "product45.jpg", description: "محصول شماره ۴۵" },
+    { id: 46, price: "۵۰۰٬۰۰۰ تومان", image: "product46.jpg", description: "محصول شماره ۴۶" },
+    { id: 47, price: "۵۰۰٬۰۰۰ تومان", image: "product47.jpg", description: "محصول شماره ۴۷" },
+    { id: 48, price: "۵۰۰٬۰۰۰ تومان", image: "product48.jpg", description: "محصول شماره ۴۸" },
+    { id: 49, price: "۵۰۰٬۰۰۰ تومان", image: "product49.jpg", description: "محصول شماره ۴۹" },
+    { id: 50, price: "۵۰۰٬۰۰۰ تومان", image: "product50.jpg", description: "محصول شماره ۵۰" },
+    { id: 51, price: "۵۰۰٬۰۰۰ تومان", image: "product51.jpg", description: "محصول شماره ۵۱" },
+    { id: 52, price: "۵۰۰٬۰۰۰ تومان", image: "product52.jpg", description: "محصول شماره ۵۲" },
+    { id: 53, price: "۵۰۰٬۰۰۰ تومان", image: "product53.jpg", description: "محصول شماره ۵۳" },
+    { id: 54, price: "۵۰۰٬۰۰۰ تومان", image: "product54.jpg", description: "محصول شماره ۵۴" },
+    { id: 55, price: "۵۰۰٬۰۰۰ تومان", image: "product55.jpg", description: "محصول شماره ۵۵" },
+    { id: 56, price: "۵۰۰٬۰۰۰ تومان", image: "product56.jpg", description: "محصول شماره ۵۶" },
+    { id: 57, price: "۵۰۰٬۰۰۰ تومان", image: "product57.jpg", description: "محصول شماره ۵۷" },
+    { id: 58, price: "۵۰۰٬۰۰۰ تومان", image: "product58.jpg", description: "محصول شماره ۵۸" },
+    { id: 59, price: "۵۰۰٬۰۰۰ تومان", image: "product59.jpg", description: "محصول شماره ۵۹" },
+    { id: 60, price: "۵۰۰٬۰۰۰ تومان", image: "product60.jpg", description: "محصول شماره ۶۰" }
   ];
 
   const shopGrid = document.getElementById('shopGrid');
